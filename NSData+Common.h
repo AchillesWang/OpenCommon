@@ -1,180 +1,112 @@
-//
-//  NSData+Common.h
-//  OpenCommon
-//
-//  Created by HuXin on 14-4-3.
-//  Copyright (c) 2014年 NestTime. All rights reserved.
-//
-
-#import <Foundation/Foundation.h>
-#import <CommonCrypto/CommonCrypto.h>
-/**
- *  NSData类目
+/*
+ *  NSData+CommonCrypto.h
+ *  AQToolkit
+ *
+ *  Created by Jim Dovey on 31/8/2008.
+ *
+ *  Copyright (c) 2008-2009, Jim Dovey
+ *  All rights reserved.
+ *
+ *  Redistribution and use in source and binary forms, with or without
+ *  modification, are permitted provided that the following conditions
+ *  are met:
+ *
+ *  Redistributions of source code must retain the above copyright notice,
+ *  this list of conditions and the following disclaimer.
+ *
+ *  Redistributions in binary form must reproduce the above copyright
+ *  notice, this list of conditions and the following disclaimer in the
+ *  documentation and/or other materials provided with the distribution.
+ *
+ *  Neither the name of this project's author nor the names of its
+ *  contributors may be used to endorse or promote products derived from
+ *  this software without specific prior written permission.
+ *
+ *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ *  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ *  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+ *  FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ *  HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
+ *  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+ *  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+ *  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+ *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ *
  */
+
+#import <Foundation/NSData.h>
+#import <Foundation/NSError.h>
+#import <CommonCrypto/CommonCryptor.h>
+#import <CommonCrypto/CommonHMAC.h>
+
+extern NSString * const kCommonCryptoErrorDomain;
+
+@interface NSError (CommonCryptoErrorDomain)
++ (NSError *) errorWithCCCryptorStatus: (CCCryptorStatus) status;
+@end
+
+@interface NSData (CommonDigest)
+
+- (NSData *) MD2Sum;
+- (NSData *) MD4Sum;
+- (NSData *) MD5Sum;
+
+- (NSData *) SHA1Hash;
+- (NSData *) SHA224Hash;
+- (NSData *) SHA256Hash;
+- (NSData *) SHA384Hash;
+- (NSData *) SHA512Hash;
+
+@end
+
 @interface NSData (Common)
-/**
-*	@brief	使用Key进行HMAC-SHA1加密
-*
-*	@param 	key 	密钥
-*
-*	@return	加密后数据
-*/
-- (NSData *)dataByUsingHMacSHA1WithKey:(NSData *)key;
 
-/**
- *	@brief	使用BASE64编码数据
- *
- *	@return	编码后字符串
- */
-- (NSString *)stringWithBase64Encode;
+- (NSData *) AES256EncryptedDataUsingKey: (id) key error: (NSError **) error;
+- (NSData *) decryptedAES256DataUsingKey: (id) key error: (NSError **) error;
 
-/**
- *	@brief	获取16进制字符串
- *
- *	@return	16进制字符串
- */
-- (NSString *)hexString;
+- (NSData *) DESEncryptedDataUsingKey: (id) key error: (NSError **) error;
+- (NSData *) decryptedDESDataUsingKey: (id) key error: (NSError **) error;
 
-/**
- *	@brief	AES128位加密
- *
- *  @since  ver1.0.6
- *
- *	@param 	key 	密钥
- *	@param 	iv 	初始向量,允许为nil
- *  @param  encoding    字符编码
- *
- *	@return	加密后数据
- */
-- (NSData *)dataUsingAES128EncryptWithKey:(NSString *)key
-                                       iv:(NSString *)iv
-                                 encoding:(NSStringEncoding)encoding;
+- (NSData *) CASTEncryptedDataUsingKey: (id) key error: (NSError **) error;
+- (NSData *) decryptedCASTDataUsingKey: (id) key error: (NSError **) error;
 
-/**
- *	@brief	AES128位解密
- *
- *  @since  ver1.0.6
- *
- *	@param 	key 	密钥
- *	@param 	iv 	初始向量,允许为nil
- *  @param  encoding    字符编码
- *
- *	@return	解密后数据
- */
-- (NSData *)dataUsingAES128DecryptWithKey:(NSString *)key
-                                       iv:(NSString *)iv
-                                 encoding:(NSStringEncoding)encoding;
+@end
 
-/**
- *	@brief	AES128位加密
- *
- *  @since  ver1.0.11
- *
- *	@param 	key 	密钥
- *	@param 	iv 	初始向量,允许为nil
- *  @param  options     选项
- *
- *	@return	加密后数据
- */
-- (NSData *)dataUsingAES128EncryptWithKey:(NSData *)key
-                                       iv:(NSData *)iv
-                                  options:(CCOptions)options;
+@interface NSData (LowLevelCommonCryptor)
 
-/**
- *	@brief	AES128位解密
- *
- *  @since  ver1.0.11
- *
- *	@param 	key 	密钥
- *	@param 	iv 	初始向量,允许为nil
- *  @param  options     选项
- *
- *	@return	解密后数据
- */
-- (NSData *)dataUsingAES128DecryptWithKey:(NSData *)key
-                                       iv:(NSData *)iv
-                                  options:(CCOptions)options;
+- (NSData *) dataEncryptedUsingAlgorithm: (CCAlgorithm) algorithm
+									 key: (id) key		// data or string
+								   error: (CCCryptorStatus *) error;
+- (NSData *) dataEncryptedUsingAlgorithm: (CCAlgorithm) algorithm
+									 key: (id) key		// data or string
+                                 options: (CCOptions) options
+								   error: (CCCryptorStatus *) error;
+- (NSData *) dataEncryptedUsingAlgorithm: (CCAlgorithm) algorithm
+									 key: (id) key		// data or string
+					initializationVector: (id) iv		// data or string
+								 options: (CCOptions) options
+								   error: (CCCryptorStatus *) error;
 
-/**
- *	@brief	AES256位加密
- *
- *  @since  ver1.0.6
- *
- *	@param 	key 	密钥
- *	@param 	iv 	初始向量,允许为nil
- *  @param  encoding    字符编码
- *
- *	@return	加密后数据
- */
-- (NSData *)dataUsingAES256EncryptWithKey:(NSString *)key
-                                       iv:(NSString *)iv
-                                 encoding:(NSStringEncoding)encoding;
+- (NSData *) decryptedDataUsingAlgorithm: (CCAlgorithm) algorithm
+									 key: (id) key		// data or string
+								   error: (CCCryptorStatus *) error;
+- (NSData *) decryptedDataUsingAlgorithm: (CCAlgorithm) algorithm
+									 key: (id) key		// data or string
+                                 options: (CCOptions) options
+								   error: (CCCryptorStatus *) error;
+- (NSData *) decryptedDataUsingAlgorithm: (CCAlgorithm) algorithm
+									 key: (id) key		// data or string
+					initializationVector: (id) iv		// data or string
+								 options: (CCOptions) options
+								   error: (CCCryptorStatus *) error;
 
-/**
- *	@brief	AES256位解密
- *
- *  @since  ver1.0.6
- *
- *	@param 	key 	密钥
- *	@param 	iv 	初始向量,允许为nil
- *  @param  encoding    字符编码
- *
- *	@return	解密后数据
- */
-- (NSData *)dataUsingAES256DecryptWithKey:(NSString *)key
-                                       iv:(NSString *)iv
-                                 encoding:(NSStringEncoding)encoding;
+@end
 
-/**
- *	@brief	AES256位加密
- *
- *  @since  ver1.0.11
- *
- *	@param 	key 	密钥
- *	@param 	iv 	初始向量,允许为nil
- *  @param  options     选项
- *
- *	@return	加密后数据
- */
-- (NSData *)dataUsingAES256EncryptWithKey:(NSData *)key
-                                       iv:(NSData *)iv
-                                  options:(CCOptions)options;
+@interface NSData (CommonHMAC)
 
-/**
- *	@brief	AES256位解密
- *
- *  @since  ver1.0.11
- *
- *	@param 	key 	密钥
- *	@param 	iv 	初始向量,允许为nil
- *  @param  options     选项
- *
- *	@return	解密后数据
- */
-- (NSData *)dataUsingAES256DecryptWithKey:(NSData *)key
-                                       iv:(NSData *)iv
-                                  options:(CCOptions)options;
+- (NSData *) HMACWithAlgorithm: (CCHmacAlgorithm) algorithm;
+- (NSData *) HMACWithAlgorithm: (CCHmacAlgorithm) algorithm key: (id) key;
 
-/**
- *	@brief	GZip方式压缩数据
- *
- *	@return	压缩后数据
- */
-- (NSData *)gzipData;
-
-/**
- *	@brief	解压GZip数据
- *
- *	@return	解压后GZip数据
- */
-- (NSData *)uncompressGZipData;
-
-/**
- *	@brief	对数据进行MD5散列
- *
- *  @since  ver1.0.10
- *
- *	@return	MD5后的数据
- */
-- (NSData *)dataByUsingMD5;
 @end
