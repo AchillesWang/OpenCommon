@@ -6,6 +6,7 @@
 //  Copyright (c) 2014年 NestTime. All rights reserved.
 //
 
+
 #import <XCTest/XCTest.h>
 
 @interface OpenCommonTests : XCTestCase
