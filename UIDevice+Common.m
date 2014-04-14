@@ -7,7 +7,18 @@
 //
 
 #import "UIDevice+Common.h"
+#import "sys/utsname.h"
 
 @implementation UIDevice (Common)
-
+-(BOOL)isPhone5
+{
+    struct utsname sysinfo;
+    uname(&sysinfo);
+    NSLog(@"%s",sysinfo.machine);
+    if (sysinfo.machine) {
+//        NSLog()
+    }
+//    free(&sysinfo);
+    return YES;
+}
 @end

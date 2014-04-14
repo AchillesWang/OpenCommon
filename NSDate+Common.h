@@ -36,7 +36,7 @@
  *
  *	@return	日期
  */
-+ (NSInteger)getDate:(NSDate *)date;
++ (NSInteger)getDayOfMonth:(NSDate *)date;
 
 /**
  *	@brief	获取NSDate的小时部分
