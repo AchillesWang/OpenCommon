@@ -1,12 +1,3 @@
- *.o 
- *.lo
- *.la 
- *.al 
- .libs 
- *.so 
- *.so.[0-9]
-*.pyc 
-*.pyo 
-*.rej 
+*.o 
 *.swp 
 .DS_Store
