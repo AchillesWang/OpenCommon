@@ -29,6 +29,8 @@
 		0DCA181718EDAF68000E9948 /* UIDevice+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DCA181618EDAF68000E9948 /* UIDevice+Common.m */; };
 		0DCA181A18EDAF7E000E9948 /* NSData+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DCA181918EDAF7E000E9948 /* NSData+Common.m */; };
 		0DCA181D18EDAF96000E9948 /* NSDate+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DCA181C18EDAF96000E9948 /* NSDate+Common.m */; };
+		C081F10418FCC6DB00811775 /* NSRegularExpression+Verification.m in Sources */ = {isa = PBXBuildFile; fileRef = C081F10318FCC6DB00811775 /* NSRegularExpression+Verification.m */; };
+		C081F10718FCD3A100811775 /* CMUncaughtExceptionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = C081F10618FCD3A100811775 /* CMUncaughtExceptionHandler.m */; };
 		C0CEDAAD18FBBA6A00B91B1F /* UIView+ViewGeometry.m in Sources */ = {isa = PBXBuildFile; fileRef = C0CEDAAC18FBBA6A00B91B1F /* UIView+ViewGeometry.m */; };
 		C0F79F0418F7DD18002F328F /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = C0F79F0318F7DD18002F328F /* KeychainItemWrapper.m */; };
 /* End PBXBuildFile section */
@@ -80,6 +82,10 @@
 		0DCA181918EDAF7E000E9948 /* NSData+Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Common.m"; sourceTree = "<group>"; };
 		0DCA181B18EDAF96000E9948 /* NSDate+Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Common.h"; sourceTree = "<group>"; };
 		0DCA181C18EDAF96000E9948 /* NSDate+Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Common.m"; sourceTree = "<group>"; };
+		C081F10218FCC6DB00811775 /* NSRegularExpression+Verification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSRegularExpression+Verification.h"; sourceTree = "<group>"; };
+		C081F10318FCC6DB00811775 /* NSRegularExpression+Verification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSRegularExpression+Verification.m"; sourceTree = "<group>"; };
+		C081F10518FCD3A100811775 /* CMUncaughtExceptionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMUncaughtExceptionHandler.h; path = OpenCommon/CMUncaughtExceptionHandler.h; sourceTree = "<group>"; };
+		C081F10618FCD3A100811775 /* CMUncaughtExceptionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CMUncaughtExceptionHandler.m; path = OpenCommon/CMUncaughtExceptionHandler.m; sourceTree = "<group>"; };
 		C0CEDAAB18FBBA6A00B91B1F /* UIView+ViewGeometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ViewGeometry.h"; sourceTree = "<group>"; };
 		C0CEDAAC18FBBA6A00B91B1F /* UIView+ViewGeometry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ViewGeometry.m"; sourceTree = "<group>"; };
 		C0F79F0218F7DD18002F328F /* KeychainItemWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainItemWrapper.h; sourceTree = "<group>"; };
@@ -187,6 +193,8 @@
 		0D3F607918EC642B005B0691 /* ACCommon */ = {
 			isa = PBXGroup;
 			children = (
+				C081F10518FCD3A100811775 /* CMUncaughtExceptionHandler.h */,
+				C081F10618FCD3A100811775 /* CMUncaughtExceptionHandler.m */,
 				C0F79F0218F7DD18002F328F /* KeychainItemWrapper.h */,
 				C0F79F0318F7DD18002F328F /* KeychainItemWrapper.m */,
 				0D3F607618EC63F1005B0691 /* ACCommon.h */,
@@ -208,6 +216,8 @@
 				0DCA181C18EDAF96000E9948 /* NSDate+Common.m */,
 				C0CEDAAB18FBBA6A00B91B1F /* UIView+ViewGeometry.h */,
 				C0CEDAAC18FBBA6A00B91B1F /* UIView+ViewGeometry.m */,
+				C081F10218FCC6DB00811775 /* NSRegularExpression+Verification.h */,
+				C081F10318FCC6DB00811775 /* NSRegularExpression+Verification.m */,
 			);
 			name = ACCommon;
 			sourceTree = "<group>";
@@ -315,6 +325,8 @@
 			files = (
 				0D3F605218EC63A0005B0691 /* OCAppDelegate.m in Sources */,
 				0D3F607818EC63F1005B0691 /* ACCommon.m in Sources */,
+				C081F10718FCD3A100811775 /* CMUncaughtExceptionHandler.m in Sources */,
+				C081F10418FCC6DB00811775 /* NSRegularExpression+Verification.m in Sources */,
 				C0CEDAAD18FBBA6A00B91B1F /* UIView+ViewGeometry.m in Sources */,
 				0D3F607F18EC660A005B0691 /* CMDevice.m in Sources */,
 				0DCA181A18EDAF7E000E9948 /* NSData+Common.m in Sources */,

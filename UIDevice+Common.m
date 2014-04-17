@@ -142,8 +142,4 @@
     return outString;
 }
 
--(NSString *)deviceModel
-{
-
-}
 @end
