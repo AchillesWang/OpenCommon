@@ -27,7 +27,6 @@
     NSLog(@"我爱你:%@",[CMPinYin firstLatter:@"我爱你"]);
     NSLog(@"我爱你:%@",[CMPinYin pinYin:@"我爱你"]);
     NSLog(@"OpenUDID:%@",[CMOpenUDID value]);
-    [[UIDevice currentDevice] isPhone5];
     NSLog(@"%ld",(long)[NSDate getDayOfMonth:[NSDate date]]);
     
     

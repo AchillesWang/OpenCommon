@@ -7,6 +7,23 @@
 //
 
 #import <UIKit/UIKit.h>
+
+/**
+ *  @brief 设备分辨率
+ */
+typedef enum {
+    // iPhone 1,3,3GS 标准分辨率(320x480px)
+    UIDevice_iPhoneStandardRes      = 1,
+    // iPhone 4,4S 高清分辨率(640x960px)
+    UIDevice_iPhoneHiRes            = 2,
+    // iPhone 5,5S 高清分辨率(640x1136px)
+    UIDevice_iPhoneTallerHiRes      = 3,
+    // iPad 1,2,iPadMini 标准分辨率(1024x768px)
+    UIDevice_iPadStandardRes        = 4,
+    // iPad 3,4,Air,iPadMini High Resolution(2048x1536px)
+    UIDevice_iPadHiRes              = 5
+}UIDeviceResolution;
+
 /**
  *	@brief	网络类型
  */
@@ -15,8 +32,7 @@ typedef enum
 	CMNetworkTypeNone = 0, /**< 无网络 */
 	CMNetworkTypeCellular = 1, /**< 蜂窝网络 */
     CMNetworkTypeWifi = 2, /**< wifi */
-}
-CMNetworkType;
+}CMNetworkType;
 
 /**
  *	@brief	设备类目
@@ -29,21 +45,21 @@ CMNetworkType;
  *
  *	@return	YES：是，NO：否
  */
-- (BOOL)isPhone5;
++ (BOOL)isPhone5;
 
 /**
  *	@brief	获取系统越狱标识
  *
  *	@return	YES表示已经越狱，否则没有越狱。
  */
-- (BOOL)isJailBroken;
++ (BOOL)isJailBroken;
 
 /**
  *	@brief	取得网卡的物理地址
  *
  *	@return	网卡物理地址
  */
-- (NSString *)macAddress;
++ (NSString *)macAddress;
 
 /**
  *	@brief	获取设备型号
@@ -120,4 +136,10 @@ CMNetworkType;
  *	@return	运行进程
  */
 - (NSArray *)runningProcesses;
+/**
+ *  设备分辨率
+ *
+ *  @return 设备分辨率
+ */
++ (UIDeviceResolution) currentResolution;
 @end
