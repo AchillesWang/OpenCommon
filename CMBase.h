@@ -1,12 +1,13 @@
 //
-//  OCViewController.h
+//  OPCommon.h
 //  OpenCommon
 //
 //  Created by HuXin on 14-4-2.
 //  Copyright (c) 2014年 NestTime. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-@interface OCViewController : UIViewController
+#import <Foundation/Foundation.h>
+
+@interface CMBase : NSObject
 
 @end

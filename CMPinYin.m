@@ -7,7 +7,18 @@
 //
 
 #import "CMPinYin.h"
-#include "CMPinYin_C.h"
+
+#define CMGetPinYin(sourceString) getPinYin((sourceString))
+
+static NSString *getPinYin(NSString *sourceString)
+{
+    NSMutableString *newStr = [NSMutableString stringWithString:sourceString];
+    CFRange range = CFRangeMake(0, newStr.length);
+    CFStringTransform((CFMutableStringRef)newStr, &range, kCFStringTransformMandarinLatin, NO);
+    CFStringTransform((CFMutableStringRef)newStr, &range, kCFStringTransformStripCombiningMarks, NO);
+    return newStr;//获取中文拼音
+}
+
 
 @implementation CMPinYin
 

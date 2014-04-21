@@ -2,7 +2,7 @@
 //  UIDevice+Common.h
 //  OpenCommon
 //
-//  Created by HuXin on 14-4-3.
+//  Created by WangXiaoXiang on 14-4-3.
 //  Copyright (c) 2014年 NestTime. All rights reserved.
 //
 
@@ -20,7 +20,7 @@ typedef enum {
     UIDevice_iPhoneTallerHiRes      = 3,
     // iPad 1,2,iPadMini 标准分辨率(1024x768px)
     UIDevice_iPadStandardRes        = 4,
-    // iPad 3,4,Air,iPadMini High Resolution(2048x1536px)
+    // iPad 3,4,Air,iPadMini2 High Resolution(2048x1536px)
     UIDevice_iPadHiRes              = 5
 }UIDeviceResolution;
 
@@ -30,9 +30,41 @@ typedef enum {
 typedef enum
 {
 	CMNetworkTypeNone = 0, /**< 无网络 */
-	CMNetworkTypeCellular = 1, /**< 蜂窝网络 */
-    CMNetworkTypeWifi = 2, /**< wifi */
+    CMNetworkTypeWifi, /**< wifi */
+	CMNetworkTypeCellular, /**< 蜂窝网络 */
+    
 }CMNetworkType;
+
+
+
+/**
+ *  系统版本
+ */
+typedef enum {
+    CMSystemVersion_iOS_7 = 7,
+    CMSystemVersion_iOS_5 = 5,
+    CMSystemVersion_iOS_6 = 6,
+    CMSystemVersion_iOS_5_BEFORE = 0,
+    CMSystemVersion_OTHER = -1
+}CMSystemVersion;
+
+typedef CMSystemVersion CMSystemVersion;
+
+
+
+//typedef enum{
+//    CMDeviceMachine_Other,
+//    CMDeviceMachine_iPhone5,
+//    CMDeviceMachine_iPhone4,
+//    CMDeviceMachine_iPhone3G,
+//    CMDeviceMachine_iPad1,
+//    CMDeviceMachine_iPad2,
+//    CMDeviceMachine_iPad3,
+//    CMDeviceMachine_iPad4,
+//    CMDeviceMachine_iPadAir,
+//    CMDeviceMachine_iPadMini,
+//    CMDeviceMachine_iPadMini2,
+//}CMDeviceMachine;
 
 /**
  *	@brief	设备类目
@@ -142,4 +174,10 @@ typedef enum
  *  @return 设备分辨率
  */
 + (UIDeviceResolution) currentResolution;
+/**
+ *  返回当前系统的版本
+ *
+ *  @return 当前系统的版本
+ */
++(CMSystemVersion)deviceSystemVersion;
 @end

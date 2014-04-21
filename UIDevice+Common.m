@@ -12,6 +12,7 @@
 #include <sys/sysctl.h>
 #include <net/if.h>
 #include <net/if_dl.h>
+#import "CMReachability.h"
 
 
 @implementation UIDevice (Common)
@@ -141,5 +142,110 @@
     
     return outString;
 }
+
+
+//MARK:未实现
+-(BOOL)isEnable3G
+{
+#if TARGET_IPHONE_SIMULATOR
+    return NO;
+#else
+    return [[Reachability reachabilityForInternetConnection] currentReachabilityStatus]==ReachableViaWWAN?YES:NO;
+#endif
+}
+-(BOOL)isEnableWIFI
+{
+    return [[CMReachability reachabilityForInternetConnection] currentReachabilityStatus]==ReachableViaWiFi?YES:NO;
+}
+-(NSString *)deviceModel
+{
+    struct utsname  sys;
+    uname(&sys);
+    return [NSString stringWithCString:sys.machine encoding:NSUTF8StringEncoding];
+}
+-(CMNetworkType)currentNetworkType
+{
+    return (int)[[CMReachability reachabilityForInternetConnection] currentReachabilityStatus];
+}
+-(BOOL)isPad
+{
+    
+    return [self.model isEqualToString:@"iPad"];
+}
+-(NSArray *)runningProcesses
+{
+    int mib[4] = {CTL_KERN, KERN_PROC, KERN_PROC_ALL, 0};
+	size_t miblen = 4;
+	
+	size_t size;
+	int st = sysctl(mib, (u_int)miblen, NULL, &size, NULL, 0);
+	
+	struct kinfo_proc * process = NULL;
+	struct kinfo_proc * newprocess = NULL;
+	
+    do {
+		
+        size += size / 10;
+        newprocess = realloc(process, size);
+		
+        if (!newprocess){
+			
+            if (process){
+                free(process);
+            }
+			
+            return nil;
+        }
+		
+        process = newprocess;
+        st = sysctl(mib, (u_int)miblen, process, &size, NULL, 0);
+		
+    } while (st == -1 && errno == ENOMEM);
+	
+	if (st == 0){
+		
+		if (size % sizeof(struct kinfo_proc) == 0){
+			long nprocess = size / sizeof(struct kinfo_proc);
+            
+			if (nprocess){
+                
+				NSMutableArray * array = [[NSMutableArray alloc] init];
+                
+				for (long i = nprocess - 1; i >= 0; i--){
+                    
+					NSString * processID = [[NSString alloc] initWithFormat:@"%d", process[i].kp_proc.p_pid];
+					NSString * processName = [[NSString alloc] initWithFormat:@"%s", process[i].kp_proc.p_comm];
+                    
+					NSDictionary * dict = [[NSDictionary alloc] initWithObjects:[NSArray arrayWithObjects:processID, processName, nil]
+																		forKeys:[NSArray arrayWithObjects:@"ProcessID", @"ProcessName", nil]];
+					[array addObject:dict];
+				}
+                
+				free(process);
+				return array;
+			}
+		}
+	}
+	
+	return nil;
+}
+
++(CMSystemVersion)deviceSystemVersion
+{
+    //    UIDevice* device = [UIDevice currentDevice];
+    //获得系统版本
+    CGFloat svf = [[[UIDevice currentDevice] systemVersion] floatValue];
+    if (svf >= 7.0) {
+        return CMSystemVersion_iOS_7;
+    }else if (svf >= 6.0) {
+        return CMSystemVersion_iOS_6;
+    }else if (svf >= 5.0){
+        return CMSystemVersion_iOS_5;
+    }else if(svf < 5.0){
+        return CMSystemVersion_iOS_5_BEFORE;
+    }
+    return CMSystemVersion_OTHER;
+}
+
 
 @end

@@ -9,7 +9,7 @@
 
 #import "OCAppDelegate.h"
 #import "CMDebugLog.h"
-#import "CMUncaughtExceptionHandler.h"
+#import "CMUnExHandler.h"
 
 @implementation OCAppDelegate
 
@@ -29,13 +29,13 @@
 //                                             failure:^(NSError *error) {
 //                                                 NSLog(@"不要,%@",error);
 //                                             }];
-    NSError* error = nil;
-    NSString* str = [NSString stringWithContentsOfFile:exceptionFilePaths() encoding:NSUTF8StringEncoding error:&error];
-    if (error) {
-        NSLog(@"%@,%@",error,[error userInfo]);
-        NSString* string =[NSString stringWithFormat:@"%@\n%@\n%@",[error localizedDescription],[error localizedFailureReason],[error localizedRecoverySuggestion]];
-        CMDebugLogWriteError(error);
-    }
+//    NSError* error = nil;
+//    NSString* str = [NSString stringWithContentsOfFile:exceptionFilePaths() encoding:NSUTF8StringEncoding error:&error];
+//    if (error) {
+//        NSLog(@"%@,%@",error,[error userInfo]);
+//        NSString* string =[NSString stringWithFormat:@"%@\n%@\n%@",[error localizedDescription],[error localizedFailureReason],[error localizedRecoverySuggestion]];
+//        CMDebugLogWriteError(error);
+//    }
     return YES;
 }
 							

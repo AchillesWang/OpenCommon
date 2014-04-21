@@ -29,6 +29,8 @@
 //写入内容
 #define CMDebugWriteStringToFile(content) writeStringToFile((content))
 
+#pragma mark - Supporting function
+
 /**
  *  Debug文件路径
  *
@@ -46,7 +48,8 @@ NSString *debugFilePath() {
  *  @param content 内容
  */
 void writeStringToFile(NSString*  content){
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+    dispatch_queue_t queueFile = dispatch_queue_create("writeFile", NULL);
+    dispatch_async(queueFile, ^{
         //判断文件是否存在，不存在着创建
         NSFileManager* fileManager = [NSFileManager defaultManager];
         if (![fileManager fileExistsAtPath:CMDebugFilePath]) {
@@ -79,6 +82,9 @@ NSString* endContent()
 NSString* insertContentString(NSString* headStr,NSString* endStr,NSString *content){
     return [NSString stringWithFormat:@"%@\n\n%@%@",headStr,content,endStr];
 }
+
+
+#pragma mark - CMDebugLog implementation
 
 @implementation CMDebugLog
 

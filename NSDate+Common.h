@@ -1,12 +1,20 @@
 //
 //  NSDate+Common.h
 //  OpenCommon
-//
-//  Created by HuXin on 14-4-3.
+
+//  在获取NSDate中的莫个组件时，如果获取失败返回CMDateCommonNumberError。
+
+//  Created by WangXiaoXiang on 14-4-3.
 //  Copyright (c) 2014年 NestTime. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
+
+
+
+
+#define CMDateCommonNumberError -999
+
 /**
  *  @brief NSDate类目
  */
@@ -110,7 +118,7 @@
  */
 + (NSDate *)dateByYear:(NSInteger)year
                  month:(NSInteger)month
-                  date:(NSInteger)date
+                  day:(NSInteger)day
                   hour:(NSInteger)hour
                 minute:(NSInteger)minute
                 second:(NSInteger)second;

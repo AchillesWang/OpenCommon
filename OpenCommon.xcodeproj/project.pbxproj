@@ -21,18 +21,18 @@
 		0D3F606318EC63A0005B0691 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D3F604518EC63A0005B0691 /* UIKit.framework */; };
 		0D3F606B18EC63A0005B0691 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0D3F606918EC63A0005B0691 /* InfoPlist.strings */; };
 		0D3F606D18EC63A0005B0691 /* OpenCommonTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D3F606C18EC63A0005B0691 /* OpenCommonTests.m */; };
-		0D3F607818EC63F1005B0691 /* ACCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D3F607718EC63F1005B0691 /* ACCommon.m */; };
+		0D3F607818EC63F1005B0691 /* CMBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D3F607718EC63F1005B0691 /* CMBase.m */; };
 		0D3F607C18EC6500005B0691 /* CMDebugLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D3F607B18EC6500005B0691 /* CMDebugLog.m */; };
-		0D3F607F18EC660A005B0691 /* CMDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D3F607E18EC660A005B0691 /* CMDevice.m */; };
 		0DCA180D18EDA0D7000E9948 /* CMPinYin.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DCA180C18EDA0D7000E9948 /* CMPinYin.m */; };
 		0DCA181118EDAA8B000E9948 /* CMOpenUDID.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DCA181018EDAA8B000E9948 /* CMOpenUDID.m */; };
 		0DCA181718EDAF68000E9948 /* UIDevice+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DCA181618EDAF68000E9948 /* UIDevice+Common.m */; };
 		0DCA181A18EDAF7E000E9948 /* NSData+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DCA181918EDAF7E000E9948 /* NSData+Common.m */; };
 		0DCA181D18EDAF96000E9948 /* NSDate+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DCA181C18EDAF96000E9948 /* NSDate+Common.m */; };
-		C081F10418FCC6DB00811775 /* NSRegularExpression+Verification.m in Sources */ = {isa = PBXBuildFile; fileRef = C081F10318FCC6DB00811775 /* NSRegularExpression+Verification.m */; };
-		C081F10718FCD3A100811775 /* CMUncaughtExceptionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = C081F10618FCD3A100811775 /* CMUncaughtExceptionHandler.m */; };
+		C081F10418FCC6DB00811775 /* NSRegularExpression+Valid.m in Sources */ = {isa = PBXBuildFile; fileRef = C081F10318FCC6DB00811775 /* NSRegularExpression+Valid.m */; };
 		C0CEDAAD18FBBA6A00B91B1F /* UIView+ViewGeometry.m in Sources */ = {isa = PBXBuildFile; fileRef = C0CEDAAC18FBBA6A00B91B1F /* UIView+ViewGeometry.m */; };
-		C0F79F0418F7DD18002F328F /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = C0F79F0318F7DD18002F328F /* KeychainItemWrapper.m */; };
+		C0E9C66718FF6970001D18CA /* CMUnExHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E9C66618FF6970001D18CA /* CMUnExHandler.m */; };
+		C0E9C66A18FFA177001D18CA /* CMReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E9C66918FFA177001D18CA /* CMReachability.m */; };
+		C0F79F0418F7DD18002F328F /* CMKeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = C0F79F0318F7DD18002F328F /* CMKeychainItemWrapper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,15 +65,12 @@
 		0D3F606818EC63A0005B0691 /* OpenCommonTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "OpenCommonTests-Info.plist"; sourceTree = "<group>"; };
 		0D3F606A18EC63A0005B0691 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0D3F606C18EC63A0005B0691 /* OpenCommonTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OpenCommonTests.m; sourceTree = "<group>"; };
-		0D3F607618EC63F1005B0691 /* ACCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACCommon.h; sourceTree = "<group>"; };
-		0D3F607718EC63F1005B0691 /* ACCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACCommon.m; sourceTree = "<group>"; };
+		0D3F607618EC63F1005B0691 /* CMBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMBase.h; sourceTree = "<group>"; };
+		0D3F607718EC63F1005B0691 /* CMBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMBase.m; sourceTree = "<group>"; };
 		0D3F607A18EC6500005B0691 /* CMDebugLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMDebugLog.h; sourceTree = "<group>"; };
 		0D3F607B18EC6500005B0691 /* CMDebugLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMDebugLog.m; sourceTree = "<group>"; };
-		0D3F607D18EC660A005B0691 /* CMDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMDevice.h; sourceTree = "<group>"; };
-		0D3F607E18EC660A005B0691 /* CMDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMDevice.m; sourceTree = "<group>"; };
 		0DCA180B18EDA0D7000E9948 /* CMPinYin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPinYin.h; sourceTree = "<group>"; };
 		0DCA180C18EDA0D7000E9948 /* CMPinYin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPinYin.m; sourceTree = "<group>"; };
-		0DCA180E18EDA220000E9948 /* CMPinYin_C.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMPinYin_C.h; sourceTree = "<group>"; };
 		0DCA180F18EDAA8B000E9948 /* CMOpenUDID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMOpenUDID.h; sourceTree = "<group>"; };
 		0DCA181018EDAA8B000E9948 /* CMOpenUDID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMOpenUDID.m; sourceTree = "<group>"; };
 		0DCA181518EDAF68000E9948 /* UIDevice+Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+Common.h"; sourceTree = "<group>"; };
@@ -82,14 +79,16 @@
 		0DCA181918EDAF7E000E9948 /* NSData+Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Common.m"; sourceTree = "<group>"; };
 		0DCA181B18EDAF96000E9948 /* NSDate+Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Common.h"; sourceTree = "<group>"; };
 		0DCA181C18EDAF96000E9948 /* NSDate+Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Common.m"; sourceTree = "<group>"; };
-		C081F10218FCC6DB00811775 /* NSRegularExpression+Verification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSRegularExpression+Verification.h"; sourceTree = "<group>"; };
-		C081F10318FCC6DB00811775 /* NSRegularExpression+Verification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSRegularExpression+Verification.m"; sourceTree = "<group>"; };
-		C081F10518FCD3A100811775 /* CMUncaughtExceptionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMUncaughtExceptionHandler.h; path = OpenCommon/CMUncaughtExceptionHandler.h; sourceTree = "<group>"; };
-		C081F10618FCD3A100811775 /* CMUncaughtExceptionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CMUncaughtExceptionHandler.m; path = OpenCommon/CMUncaughtExceptionHandler.m; sourceTree = "<group>"; };
+		C081F10218FCC6DB00811775 /* NSRegularExpression+Valid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSRegularExpression+Valid.h"; sourceTree = "<group>"; };
+		C081F10318FCC6DB00811775 /* NSRegularExpression+Valid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSRegularExpression+Valid.m"; sourceTree = "<group>"; };
 		C0CEDAAB18FBBA6A00B91B1F /* UIView+ViewGeometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ViewGeometry.h"; sourceTree = "<group>"; };
 		C0CEDAAC18FBBA6A00B91B1F /* UIView+ViewGeometry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ViewGeometry.m"; sourceTree = "<group>"; };
-		C0F79F0218F7DD18002F328F /* KeychainItemWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainItemWrapper.h; sourceTree = "<group>"; };
-		C0F79F0318F7DD18002F328F /* KeychainItemWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainItemWrapper.m; sourceTree = "<group>"; };
+		C0E9C66518FF6970001D18CA /* CMUnExHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMUnExHandler.h; sourceTree = "<group>"; };
+		C0E9C66618FF6970001D18CA /* CMUnExHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMUnExHandler.m; sourceTree = "<group>"; };
+		C0E9C66818FFA177001D18CA /* CMReachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMReachability.h; sourceTree = "<group>"; };
+		C0E9C66918FFA177001D18CA /* CMReachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMReachability.m; sourceTree = "<group>"; };
+		C0F79F0218F7DD18002F328F /* CMKeychainItemWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMKeychainItemWrapper.h; sourceTree = "<group>"; };
+		C0F79F0318F7DD18002F328F /* CMKeychainItemWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMKeychainItemWrapper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,19 +192,18 @@
 		0D3F607918EC642B005B0691 /* ACCommon */ = {
 			isa = PBXGroup;
 			children = (
-				C081F10518FCD3A100811775 /* CMUncaughtExceptionHandler.h */,
-				C081F10618FCD3A100811775 /* CMUncaughtExceptionHandler.m */,
-				C0F79F0218F7DD18002F328F /* KeychainItemWrapper.h */,
-				C0F79F0318F7DD18002F328F /* KeychainItemWrapper.m */,
-				0D3F607618EC63F1005B0691 /* ACCommon.h */,
-				0D3F607718EC63F1005B0691 /* ACCommon.m */,
+				C0E9C66818FFA177001D18CA /* CMReachability.h */,
+				C0E9C66918FFA177001D18CA /* CMReachability.m */,
+				C0E9C66518FF6970001D18CA /* CMUnExHandler.h */,
+				C0E9C66618FF6970001D18CA /* CMUnExHandler.m */,
+				C0F79F0218F7DD18002F328F /* CMKeychainItemWrapper.h */,
+				C0F79F0318F7DD18002F328F /* CMKeychainItemWrapper.m */,
+				0D3F607618EC63F1005B0691 /* CMBase.h */,
+				0D3F607718EC63F1005B0691 /* CMBase.m */,
 				0D3F607A18EC6500005B0691 /* CMDebugLog.h */,
 				0D3F607B18EC6500005B0691 /* CMDebugLog.m */,
-				0D3F607D18EC660A005B0691 /* CMDevice.h */,
-				0D3F607E18EC660A005B0691 /* CMDevice.m */,
 				0DCA180B18EDA0D7000E9948 /* CMPinYin.h */,
 				0DCA180C18EDA0D7000E9948 /* CMPinYin.m */,
-				0DCA180E18EDA220000E9948 /* CMPinYin_C.h */,
 				0DCA180F18EDAA8B000E9948 /* CMOpenUDID.h */,
 				0DCA181018EDAA8B000E9948 /* CMOpenUDID.m */,
 				0DCA181518EDAF68000E9948 /* UIDevice+Common.h */,
@@ -216,8 +214,8 @@
 				0DCA181C18EDAF96000E9948 /* NSDate+Common.m */,
 				C0CEDAAB18FBBA6A00B91B1F /* UIView+ViewGeometry.h */,
 				C0CEDAAC18FBBA6A00B91B1F /* UIView+ViewGeometry.m */,
-				C081F10218FCC6DB00811775 /* NSRegularExpression+Verification.h */,
-				C081F10318FCC6DB00811775 /* NSRegularExpression+Verification.m */,
+				C081F10218FCC6DB00811775 /* NSRegularExpression+Valid.h */,
+				C081F10318FCC6DB00811775 /* NSRegularExpression+Valid.m */,
 			);
 			name = ACCommon;
 			sourceTree = "<group>";
@@ -324,17 +322,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				0D3F605218EC63A0005B0691 /* OCAppDelegate.m in Sources */,
-				0D3F607818EC63F1005B0691 /* ACCommon.m in Sources */,
-				C081F10718FCD3A100811775 /* CMUncaughtExceptionHandler.m in Sources */,
-				C081F10418FCC6DB00811775 /* NSRegularExpression+Verification.m in Sources */,
+				0D3F607818EC63F1005B0691 /* CMBase.m in Sources */,
+				C0E9C66718FF6970001D18CA /* CMUnExHandler.m in Sources */,
+				C081F10418FCC6DB00811775 /* NSRegularExpression+Valid.m in Sources */,
 				C0CEDAAD18FBBA6A00B91B1F /* UIView+ViewGeometry.m in Sources */,
-				0D3F607F18EC660A005B0691 /* CMDevice.m in Sources */,
 				0DCA181A18EDAF7E000E9948 /* NSData+Common.m in Sources */,
 				0D3F607C18EC6500005B0691 /* CMDebugLog.m in Sources */,
 				0D3F604E18EC63A0005B0691 /* main.m in Sources */,
 				0DCA181D18EDAF96000E9948 /* NSDate+Common.m in Sources */,
+				C0E9C66A18FFA177001D18CA /* CMReachability.m in Sources */,
 				0DCA181118EDAA8B000E9948 /* CMOpenUDID.m in Sources */,
-				C0F79F0418F7DD18002F328F /* KeychainItemWrapper.m in Sources */,
+				C0F79F0418F7DD18002F328F /* CMKeychainItemWrapper.m in Sources */,
 				0D3F605818EC63A0005B0691 /* OCViewController.m in Sources */,
 				0DCA180D18EDA0D7000E9948 /* CMPinYin.m in Sources */,
 				0DCA181718EDAF68000E9948 /* UIDevice+Common.m in Sources */,
