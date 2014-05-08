@@ -1,21 +1,7 @@
 /*
-     File: KeychainItemWrapper.h
- 
- //////////////////////////////2014年04月11日 汪潇翔//////////////////////////////////////////
- 
- Summary：
-    Support ARC
- Use:
-     KeychainItemWrapper *keychainItem = [[KeychainItemWrapper alloc]initWithIdentifier:@"help" accessGroup:nil];
-     [keychainItem setObject:@"wangxiaoxiang" forKey:(__bridge  id)kSecAttrAccount];
-     [keychainItem setObject:@"123456" forKey:(__bridge  id)kSecValueData];
- 
- //////////////////////////////End///////////////////////////////////////////////////////
- 
- Abstract: 
- Objective-C wrapper for accessing a single keychain item.
- 
-  Version: 1.2
+     File: Reachability.h
+ Abstract: Basic demonstration of how to use the SystemConfiguration Reachablity APIs.
+  Version: 3.5
  
  Disclaimer: IMPORTANT:  This Apple software is supplied to you by Apple
  Inc. ("Apple") in consideration of your agreement to the following
@@ -55,36 +41,60 @@
  STRICT LIABILITY OR OTHERWISE, EVEN IF APPLE HAS BEEN ADVISED OF THE
  POSSIBILITY OF SUCH DAMAGE.
  
- Copyright (C) 2010 Apple Inc. All Rights Reserved.
+ Copyright (C) 2014 Apple Inc. All Rights Reserved.
  
-*/
+ */
 
-#import <UIKit/UIKit.h>
-
-/*
-    The KeychainItemWrapper class is an abstraction layer for the iPhone Keychain communication. It is merely a 
-    simple wrapper to provide a distinct barrier between all the idiosyncracies involved with the Keychain
-    CF/NS container objects.
-*/
-@interface KeychainItemWrapper : NSObject
-{
-    NSMutableDictionary *keychainItemData;		// The actual keychain item data backing store.
-    NSMutableDictionary *genericPasswordQuery;	// A placeholder for the generic keychain item query used to locate the item.
-}
-
-@property (nonatomic, retain) NSMutableDictionary *keychainItemData;
-@property (nonatomic, retain) NSMutableDictionary *genericPasswordQuery;
-
-// Designated initializer.
-- (id)initWithIdentifier: (NSString *)identifier accessGroup:(NSString *) accessGroup;
-- (void)setObject:(id)inObject forKey:(id)key;
-- (id)objectForKey:(id)key;
-
-// Initializes and resets the default generic keychain item data.
-- (void)resetKeychainItem;
+#import <Foundation/Foundation.h>
+#import <SystemConfiguration/SystemConfiguration.h>
+#import <netinet/in.h>
 
 
-//MARK:
+typedef enum : NSInteger {
+	NotReachable = 0,
+	ReachableViaWiFi,
+	ReachableViaWWAN
+} NetworkStatus;
 
+
+extern NSString *kReachabilityChangedNotification;
+
+
+@interface CMReachability : NSObject
+
+/*!
+ * Use to check the reachability of a given host name.
+ */
++ (instancetype)reachabilityWithHostName:(NSString *)hostName;
+
+/*!
+ * Use to check the reachability of a given IP address.
+ */
++ (instancetype)reachabilityWithAddress:(const struct sockaddr_in *)hostAddress;
+
+/*!
+ * Checks whether the default route is available. Should be used by applications that do not connect to a particular host.
+ */
++ (instancetype)reachabilityForInternetConnection;
+
+/*!
+ * Checks whether a local WiFi connection is available.
+ */
++ (instancetype)reachabilityForLocalWiFi;
+
+/*!
+ * Start listening for reachability notifications on the current run loop.
+ */
+- (BOOL)startNotifier;
+- (void)stopNotifier;
+
+- (NetworkStatus)currentReachabilityStatus;
+
+/*!
+ * WWAN may be available, but not active until a connection has been established. WiFi may require a connection for VPN on Demand.
+ */
+- (BOOL)connectionRequired;
 
 @end
+
+

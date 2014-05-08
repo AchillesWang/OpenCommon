@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#include "CMPinYin_C.h"
 @interface OCViewController : UIViewController
 
 @end

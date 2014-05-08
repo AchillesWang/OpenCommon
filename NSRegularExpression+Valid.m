@@ -6,16 +6,14 @@
 //  Copyright (c) 2014年 NestTime. All rights reserved.
 //
 
-#import "NSRegularExpression+Verification.h"
+#import "NSRegularExpression+Valid.h"
+#import "CMDebugLog.h"
 
-#define CM_DEBUG(fmt) NSLog(@"%@",(fmt))
-#define EMAIL_SPECIFICATIONS @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9]+\\.[A-Za-z]{2,4}"                  //email规格
-#define PN_SPECIFICATIONS @"[0-9]{3,4}+\\-[0-9]{7,8}"                                           //电话号码规格
-#define ZIP_SPECIFICATIONS @"[0-9]{6}"                                                          //邮编号码规格
-#define MP_SPECIFICATIONS @"[0-9]{11}"                                                          //手机号码规格
-#define URL_SPECIFICATIONS @"(https?|ftp|file)://[-A-Z0-9+&@#/%?=~_|!:,.;]*[-A-Z0-9+&@#/%=~_|]" //网址规格
 
-@implementation NSRegularExpression (Verification)
+#define CM_DEBUG(fmt) CMDebugLogWriteError((fmt))
+
+@implementation NSRegularExpression (Valid)
+
 
 +(BOOL)isEmailWithString:(NSString *)emailStr
 {
@@ -102,6 +100,24 @@
     }
     NSTextCheckingResult *isURL = [regularURL firstMatchInString:urlString options:0 range:NSMakeRange(0, [urlString length])];
     if (isURL) {
+        return YES;
+    }
+    return NO;
+}
+
++(BOOL)validString:(NSString *)str regular:(NSString *)regular
+{
+    NSString *pattemMP = regular;
+    NSError *error = nil;
+    NSRegularExpression *regularMP = [NSRegularExpression regularExpressionWithPattern:pattemMP
+                                                                               options:0
+                                                                                 error:&error];
+    if (error) {
+        CM_DEBUG(error);
+        return NO;
+    }
+    NSTextCheckingResult *isRight = [regularMP firstMatchInString:str options:0 range:NSMakeRange(0, [str length])];
+    if (isRight) {
         return YES;
     }
     return NO;

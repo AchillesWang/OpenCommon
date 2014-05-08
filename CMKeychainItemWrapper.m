@@ -47,7 +47,7 @@
   
 */
 
-#import "KeychainItemWrapper.h"
+#import "CMKeychainItemWrapper.h"
 #import <Security/Security.h>
 
 /*
@@ -73,7 +73,7 @@ See the header file Security/SecItem.h for more details.
 
 */
 
-@interface KeychainItemWrapper (PrivateMethods)
+@interface CMKeychainItemWrapper (PrivateMethods)
 /*
 The decision behind the following two methods (secItemFormatToDictionary and dictionaryToSecItemFormat) was
 to encapsulate the transition between what the detail view controller was expecting (NSString *) and what the
@@ -87,7 +87,7 @@ Keychain API expects as a validly constructed container class.
 
 @end
 
-@implementation KeychainItemWrapper
+@implementation CMKeychainItemWrapper
 
 @synthesize keychainItemData, genericPasswordQuery;
 
@@ -118,7 +118,7 @@ Keychain API expects as a validly constructed container class.
 			// If a SecItem contains an access group attribute, SecItemAdd and SecItemUpdate on the
 			// simulator will return -25243 (errSecNoAccessForItem).
 #else			
-			[genericPasswordQuery setObject:accessGroup forKey:(id)kSecAttrAccessGroup];
+			[genericPasswordQuery setObject:accessGroup forKey:(__bridge id)kSecAttrAccessGroup];
 #endif
 		}
 		// Use the proper search constants, return only the attributes of the first match.
@@ -148,7 +148,7 @@ Keychain API expects as a validly constructed container class.
 				// If a SecItem contains an access group attribute, SecItemAdd and SecItemUpdate on the
 				// simulator will return -25243 (errSecNoAccessForItem).
 #else			
-				[keychainItemData setObject:accessGroup forKey:(id)kSecAttrAccessGroup];
+				[keychainItemData setObject:accessGroup forKey:(__bridge id)kSecAttrAccessGroup];
 #endif
 			}
 		}
